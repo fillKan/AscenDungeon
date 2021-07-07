@@ -156,7 +156,7 @@ public class TouchController : MonoBehaviour
 
                         Vector2 offset = pointB - pointA;
                             Vector2 direct = Vector2.ClampMagnitude(offset, 1.0f);
-                            circle.transform.position = new Vector2(pointA.x, pointA.y);
+                            circle.transform.position = new Vector2(pointA.x, pointA.y) ;
                             if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
                             {
                                 if (Vector2.Distance(inputPosition, _BeganInputPoint) >= NeedMovingLength)
