@@ -10,12 +10,16 @@ public class NamelessSpear : Item
     private const int Idle   = 0;
     private const int Attack = 1;
 
+    private const string FrontLayerName = "Weapon";
+    private const string  BackLayerName = "Weapon_CharBack";
+
     private readonly Quaternion EffectRotate2Left  = Quaternion.Euler(0, 0, -90);
     private readonly Quaternion EffectRotate2Right = Quaternion.Euler(0, 0,  90);
 
     [Header("Item Action Property")]
     [SerializeField] private Animator _Animator;
     [SerializeField] private Area _CollisionArea;
+    [SerializeField] private SpriteRenderer _Renderer;
 
     private Player _Player;
 
@@ -28,6 +32,8 @@ public class NamelessSpear : Item
     {
         _Animator.SetInteger(_AnimHash, Idle);
         _Animator.Play("Idle");
+
+        AE_SetLayerOrderBack();
     }
     public override void AttackAction(GameObject attacker, ICombatable combatable)
     {
@@ -99,5 +105,13 @@ public class NamelessSpear : Item
 
         effect.transform.rotation = _Player.IsLookAtLeft() ? 
             EffectRotate2Left : EffectRotate2Right;
+    }
+    private void AE_SetLayerOrderFront()
+    {
+        _Renderer.sortingLayerName = FrontLayerName;
+    }
+    private void AE_SetLayerOrderBack()
+    {
+        _Renderer.sortingLayerName = BackLayerName;
     }
 }
