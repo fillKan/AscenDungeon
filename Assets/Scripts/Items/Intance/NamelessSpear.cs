@@ -137,7 +137,7 @@ public class NamelessSpear : Item
 
                 if (enemyCombat == null) continue;
 
-                enemyCombat.CastBuff(Buff.Stun, BuffLibrary.Instance.Stun(1.5f, enemyCombat.GetAbility));
+                enemyCombat.CastBuff(Buff.Stun, BuffLibrary.Instance.Stun(1f, enemyCombat.GetAbility));
                 enemyCombat.Damaged(5f, gameObject);
 
                 EffectLibrary.Instance.UsingEffect
