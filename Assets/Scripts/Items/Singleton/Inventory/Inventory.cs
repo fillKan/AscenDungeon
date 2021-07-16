@@ -20,6 +20,7 @@ public class Inventory : Singleton<Inventory>
     public event Action<Direction> DashEndEvent;
 
     public event Action PlayerEnterFloorEvent;
+    public event Action OrderAttackActionEvent;
 
     #region COMMENT
     /// <summary>
@@ -160,6 +161,7 @@ public class Inventory : Singleton<Inventory>
     }
     public void AttackAction(GameObject attacker, ICombatable targetCombat)
     {
+        OrderAttackActionEvent?.Invoke();
         mWeaponSlot.ContainItem?.AttackAction(attacker, targetCombat);
     }
     public void AttackCancel()
