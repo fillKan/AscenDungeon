@@ -32,7 +32,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: a2d880db412869245b44b1603ddadba7, type: 3}
-    totalSpriteSurfaceArea: 3670016
+    totalSpriteSurfaceArea: 3782241
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -43,6 +43,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 62aec733a151291468fd94f9dff5c74e, type: 3}
   - {fileID: 21300000, guid: 98207814d9e3db14ab8dc0243734b195, type: 3}
   - {fileID: 21300000, guid: ccfd5f268bf93974bb9e120ac6e5aa3c, type: 3}
+  - {fileID: 21300000, guid: 464c5556b7d604441a0ee9183dc82967, type: 3}
   - {fileID: 21300000, guid: 5d95cf66e71de4246887557d49f31bae, type: 3}
   - {fileID: 21300000, guid: 45f1f0e831445e7428d8a6d4c01e22dc, type: 3}
   - {fileID: 21300000, guid: 2440d2a94b4baf74b8259048f7641670, type: 3}
@@ -58,6 +59,7 @@ SpriteAtlas:
   - Storm-Spear-5
   - Storm-Spear-4
   - Storm-Spear-3
+  - NamelessSpear
   - Storm-Spear-8
   - Storm-Spear-6
   - Storm-Spear-11
