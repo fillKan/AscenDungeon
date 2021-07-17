@@ -649,6 +649,11 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2878784260182487816, guid: 51e73a3e3f1d2b947bbbed0df04f4304,
+        type: 3}
+      propertyPath: _Player
+      value: 
+      objectReference: {fileID: 404620028}
     - target: {fileID: 2983554212288916159, guid: 51e73a3e3f1d2b947bbbed0df04f4304,
         type: 3}
       propertyPath: m_textInfo.lineCount
@@ -1782,6 +1787,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 966c8ee146a50954998f62d5268f3085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &404620028 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5810549494006058014, guid: 01325a20e41267a488041a24730ae7f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 404620026}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 607c36bd91081304c9964d639ee5df09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &565130231

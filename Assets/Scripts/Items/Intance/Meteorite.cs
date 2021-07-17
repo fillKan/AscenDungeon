@@ -8,10 +8,7 @@ public class Meteorite : Item
     [SerializeField] private float _Speed;
     [SerializeField] private float _Radius;
     [Space()]
-    [SerializeField] private Area[] _Meteores;
-
-    private bool _IsAlreadyInit = false;
-    private Coroutine _UpdateRoutine;
+    [SerializeField] private Area _Meteore;
 
     private GameObject _Player;
 
@@ -19,25 +16,29 @@ public class Meteorite : Item
     { }
     public override void OffEquipThis(SlotType offSlot)
     {
-        if (offSlot == SlotType.Container) return;
-        _UpdateRoutine.StopRoutine();
-
-        for (int i = 0; i < 3; ++i) {
-            _Meteores[i].gameObject.SetActive(false);
+        switch (offSlot)
+        {
+            case SlotType.Accessory:
+                {
+                    Galaxy.Instance.RemoveMeteorite();
+                }
+                break;
+            case SlotType.Weapon:
+                {
+                    Galaxy.Instance.RemoveMeteorite(3);
+                }
+                break;
         }
     }
     public override void OnEquipThis(SlotType onSlot)
     {
-        if (!_IsAlreadyInit)
+        if (!Galaxy.Instance.IsAlreadyInit)
         {
             _Player = GameObject.FindGameObjectWithTag("Player");
 
-            _UpdateRoutine = new Coroutine(this);
-            _IsAlreadyInit = true;
-
-            for (int i = 0; i < 3; ++i)
+            Galaxy.Instance.LazyInit(_Meteore, meteo =>
             {
-                _Meteores[i].SetEnterAction(enter => {
+                meteo.SetEnterAction(enter => {
 
                     float damage = StatTable[ItemStat.AttackPower];
                     if (enter.TryGetComponent(out ICombatable combatable))
@@ -48,41 +49,23 @@ public class Meteorite : Item
                         Inventory.Instance.ProjectionHit(enter, damage);
                     }
                 });
-            }
+            });
+            Galaxy.Instance.Resolving_Radius = _Radius;
+            Galaxy.Instance.Resolving_Speed  = _Speed;
         }
+
         switch (onSlot)
         {
             case SlotType.Accessory:
-                _UpdateRoutine.StartRoutine(UpdateRoutine(1));
+                {
+                    Galaxy.Instance.AddMeteorite();
+                }
                 break;
             case SlotType.Weapon:
-                _UpdateRoutine.StartRoutine(UpdateRoutine(3));
+                {
+                    Galaxy.Instance.AddMeteorite(3);
+                }
                 break;
-        }
-    }
-    private IEnumerator UpdateRoutine(int count)
-    {
-        float angle = 0f;
-
-        for (int i = 0; i < count; ++i) {
-            _Meteores[i].gameObject.SetActive(true);
-        }
-        while (true)
-        {
-            angle += Time.deltaTime * Time.timeScale * _Speed;
-            angle = Mathf.Abs(angle) > 360f ? angle % 360f : angle;
-
-            for (int i = 0; i < count; ++i)
-            {
-                float rot = (angle + 120f * i + 90f * Mathf.Sign(_Speed)) * Mathf.Deg2Rad;
-
-                _Meteores[i].transform.localPosition =
-                    new Vector2(Mathf.Cos(rot), Mathf.Sin(rot)) * _Radius;
-
-                _Meteores[i].transform.localRotation =
-                    Quaternion.AngleAxis(angle + 120f * i, Vector3.forward);
-            }
-            yield return null;
         }
     }
 }
