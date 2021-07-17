@@ -68,6 +68,9 @@ public partial class DuelBowgun : Item
 
 public partial class DuelBowgun
 {
+    private readonly Quaternion ArrowRotate2Left  = Quaternion.identity;
+    private readonly Quaternion ArrowRotate2Right = Quaternion.Euler(0, 0, 180);
+
     protected override void AttackAnimationPlayOver()
     {
         _Animator.SetInteger(_AnimHash, Idle);
@@ -81,10 +84,11 @@ public partial class DuelBowgun
     }
     private void ShootArrow(Transform shootPoint)
     {
+        bool isLeft = _Player.IsLookAtLeft();
         var arrow = _Pool.Get();
 
-        arrow.transform.rotation = _Player.transform.localRotation;
-        arrow.Shoot(shootPoint.position, _Player.IsLookAtLeft() ? Vector2.left : Vector2.right, _ShootForce);
+        arrow.transform.rotation = isLeft ? ArrowRotate2Left : ArrowRotate2Right;
+        arrow.Shoot(shootPoint.position, isLeft ? Vector2.left : Vector2.right, _ShootForce);
 
         MainCamera.Instance.Shake(0.3f, 0.85f);
     }
