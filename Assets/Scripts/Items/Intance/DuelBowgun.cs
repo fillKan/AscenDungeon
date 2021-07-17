@@ -32,10 +32,12 @@ public partial class DuelBowgun : Item
     { }
     public override void OnEquipThis(SlotType onSlot)
     {
+        if (onSlot == SlotType.Weapon && _Player == null)
+            Debug.Assert(transform.root.TryGetComponent(out _Player));
+
         if (!_IsAlreadyInit)
         {
             _AnimHash = _Animator.GetParameter(0).nameHash;
-            Debug.Assert(transform.root.TryGetComponent(out _Player));
 
             _Pool = new Pool<Projection>();
             _Pool.Init(2, _Arrow, o =>
