@@ -8,6 +8,8 @@ public partial class WindDagger : Item
     private const int Attack_1 = 1;
     private const int Attack_2 = 2;
 
+    private const float IncreaseAttackSpeed = 0.25f;
+
     [Header("Item Action Property")]
     [SerializeField] private Animator _Animator;
     [SerializeField] private Area _CollisionArea;
@@ -35,7 +37,10 @@ public partial class WindDagger : Item
         }
     }
     public override void OffEquipThis(SlotType offSlot)
-    { }
+    {
+        if (offSlot == SlotType.Accessory)
+            Inventory.Instance.AttackSpeed -= IncreaseAttackSpeed;
+    }
     public override void OnEquipThis(SlotType onSlot)
     {
         if (!_IsAlreadyInit)
@@ -55,6 +60,7 @@ public partial class WindDagger : Item
         switch (onSlot)
         {
             case SlotType.Accessory:
+                Inventory.Instance.AttackSpeed += IncreaseAttackSpeed;
                 break;
             case SlotType.Weapon:
                 _Player = transform.root.gameObject;
