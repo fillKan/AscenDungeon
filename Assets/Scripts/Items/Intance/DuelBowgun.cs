@@ -92,6 +92,6 @@ public partial class DuelBowgun
         arrow.transform.rotation = isLeft ? ArrowRotate2Left : ArrowRotate2Right;
         arrow.Shoot(shootPoint.position, isLeft ? Vector2.left : Vector2.right, _ShootForce);
 
-        MainCamera.Instance.Shake(0.3f, 0.85f);
+        MainCamera.Instance.Shake(0.3f, 0.55f);
     }
 }
