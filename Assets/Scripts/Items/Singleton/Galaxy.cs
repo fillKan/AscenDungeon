@@ -74,7 +74,7 @@ public partial class Galaxy
         {
             float angleDistance = 360f / _EnabledMeteoList.Count;
 
-            angle += Time.deltaTime * Time.timeScale * Resolving_Speed;
+            angle += Time.deltaTime * Time.timeScale * Resolving_Speed * Inventory.Instance.AttackSpeed;
             angle = Mathf.Abs(angle) > 360f ? angle % 360f : angle;
 
             for (int i = 0; i < _EnabledMeteoList.Count; ++i)
