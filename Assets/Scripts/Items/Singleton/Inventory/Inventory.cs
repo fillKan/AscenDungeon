@@ -22,6 +22,9 @@ public class Inventory : Singleton<Inventory>
     public event Action PlayerEnterFloorEvent;
     public event Action OrderAttackActionEvent;
 
+    public event Action<Item, SlotType> EnterItemSlotEvent;
+    public event Action<Item, SlotType>  ExitItemSlotEvent;
+
     #region COMMENT
     /// <summary>
     /// parameter[1] : attacker gameobject
@@ -106,6 +109,11 @@ public class Inventory : Singleton<Inventory>
             {
                 _CrntWeaponAnimator.SetFloat("AttackSpeed", AttackSpeed);
             }
+            EnterItemSlotEvent?.Invoke(item, SlotType.Weapon);
+        };
+        mWeaponSlot.ItemChangeEvent += item =>
+        {
+            ExitItemSlotEvent?.Invoke(item, SlotType.Weapon);
         };
 
         for (int i = 0; i < ContainerSlotCount; ++i)
@@ -118,6 +126,13 @@ public class Inventory : Singleton<Inventory>
                 }
                 mAccessorySlot[i].Init(SlotType.Accessory);
                 mAccessorySlot[i].SetItem(instance);
+
+                mAccessorySlot[i].ItemEquipEvent += item => {
+                    EnterItemSlotEvent?.Invoke(item, SlotType.Accessory);
+                };
+                mAccessorySlot[i].ItemChangeEvent += item => {
+                    ExitItemSlotEvent?.Invoke(item, SlotType.Accessory);
+                };
             }
             {
                 var instance = ItemStateSaver.Instance.LoadSlotItem(SlotType.Container, i);
@@ -126,6 +141,13 @@ public class Inventory : Singleton<Inventory>
                 }
                 mContainer[i].Init(SlotType.Container);
                 mContainer[i].SetItem(instance);
+
+                mContainer[i].ItemEquipEvent += item => {
+                    EnterItemSlotEvent?.Invoke(item, SlotType.Container);
+                };
+                mContainer[i].ItemChangeEvent += item => {
+                    ExitItemSlotEvent?.Invoke(item, SlotType.Container);
+                };
             }
         }
     }
