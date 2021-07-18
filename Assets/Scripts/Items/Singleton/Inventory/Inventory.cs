@@ -62,6 +62,22 @@ public class Inventory : Singleton<Inventory>
     {
         get => mWeaponSlot.ContainItem;
     }
+    public float AttackSpeed
+    {
+        get => _AttackSpeed;
+        set 
+        {
+            _AttackSpeed = value;
+            if (mWeaponSlot.ContainItem == null) return;
+
+            if (_CrntWeaponAnimator)
+            {
+                _CrntWeaponAnimator.SetFloat("AttackSpeed", _AttackSpeed);
+            }
+        }
+    }
+    private float _AttackSpeed = 1f;
+    private Animator _CrntWeaponAnimator;
 
                      public  GameObject  InventoryWindow => _InventoryWindow;
     [SerializeField] private GameObject _InventoryWindow;
@@ -83,6 +99,14 @@ public class Inventory : Singleton<Inventory>
         }
 
         mWeaponSlot.Init(SlotType.Weapon);
+        mWeaponSlot.ItemEquipEvent += item => {
+
+            if (item == null) return;
+            if (item.TryGetComponent(out _CrntWeaponAnimator)) 
+            {
+                _CrntWeaponAnimator.SetFloat("AttackSpeed", AttackSpeed);
+            }
+        };
 
         for (int i = 0; i < ContainerSlotCount; ++i)
         {   
