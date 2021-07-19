@@ -113,6 +113,6 @@ MonoBehaviour:
   StatTable: {fileID: 528783519712793531}
   _EffectSummonPoint: {fileID: 0}
   _Speed: -120
-  _Radius: 0.92
+  _Radius: 0.86
   _Meteore: {fileID: 6067990577246632080, guid: 3e50aafe56fe62245a6d1ca89718e017,
     type: 3}
