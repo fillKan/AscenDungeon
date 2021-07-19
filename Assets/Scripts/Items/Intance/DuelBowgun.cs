@@ -32,9 +32,6 @@ public partial class DuelBowgun : Item
     { }
     public override void OnEquipThis(SlotType onSlot)
     {
-        if (onSlot == SlotType.Weapon && _Player == null)
-            Debug.Assert(transform.root.TryGetComponent(out _Player));
-
         if (!_IsAlreadyInit)
         {
             _AnimHash = _Animator.GetParameter(0).nameHash;
@@ -62,6 +59,9 @@ public partial class DuelBowgun : Item
 
     public override void AttackAction(GameObject attacker, ICombatable combatable)
     {
+        if (_Player == null)
+            attacker.TryGetComponent(out _Player);
+
         if (_Animator.GetInteger(_AnimHash) == Idle) {
             _Animator.SetInteger(_AnimHash, Attack);
         }

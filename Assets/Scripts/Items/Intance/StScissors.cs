@@ -39,7 +39,8 @@ public class StScissors : Item
     }
     public override void AttackAction(GameObject attacker, ICombatable combatable)
     {
-        // 공격 종료 동작으로 넘어갈 준비중이라면?
+        _Player = attacker;
+
         if (_Animator.GetInteger(_AnimHash) == AttackHolding && _CanAttack)
         {
             _AttackHolding.StopRoutine();

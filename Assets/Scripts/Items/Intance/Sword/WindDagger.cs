@@ -26,6 +26,8 @@ public partial class WindDagger : Item
     }
     public override void AttackAction(GameObject attacker, ICombatable combatable)
     {
+        _Player = attacker;
+
         switch (_Animator.GetInteger(_AnimHash))
         {
             case Idle:
