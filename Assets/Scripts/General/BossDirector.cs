@@ -12,6 +12,10 @@ public class BossDirector : MonoBehaviour
     [SerializeField] private AudioClip _BossThema;
     [SerializeField] private AudioSource _AudioSource;
 
+    [Header("Controller Property")]
+    [SerializeField] private GameObject _VirtualJoystick;
+    [SerializeField] private GameObject _TouchController;
+
     private void Awake()
     {
         Inventory.Instance.MoveUpDownEvent += (pos, dir) =>
@@ -29,6 +33,8 @@ public class BossDirector : MonoBehaviour
                 {
                     _Director.Play();
                     Castle.Instance.ForceStopUpdate();
+
+
                 }
             }
         };
@@ -36,6 +42,15 @@ public class BossDirector : MonoBehaviour
     public void SE_Start()
     {
         _AudioSource.clip = _BossThema;
+
+        if (GameLoger.Instance.UsingVJoystick)
+        {
+            _VirtualJoystick.SetActive(false);
+        }
+        else
+        {
+            _TouchController.SetActive(false);
+        }
     }
     public void SE_CameraSetPosition()
     {
@@ -48,5 +63,14 @@ public class BossDirector : MonoBehaviour
         Castle.Instance.PlayerFloorNotify();
 
         Castle.Instance.ReStartUpdate();
+
+        if (GameLoger.Instance.UsingVJoystick)
+        {
+            _VirtualJoystick.SetActive(true);
+        }
+        else
+        {
+            _TouchController.SetActive(true);
+        }
     }
 }

@@ -285,6 +285,8 @@ MonoBehaviour:
   _BossFloor: {fileID: 1841897592}
   _BossThema: {fileID: 8300000, guid: 53d6d693872bc134cb7b479832899327, type: 3}
   _AudioSource: {fileID: 641159398}
+  _VirtualJoystick: {fileID: 1841897594}
+  _TouchController: {fileID: 1841897593}
 --- !u!4 &49662320
 Transform:
   m_ObjectHideFlags: 0
