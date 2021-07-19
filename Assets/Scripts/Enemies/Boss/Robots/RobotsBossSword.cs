@@ -111,6 +111,7 @@ public class RobotsBossSword : MonoBehaviour, IObject, ICombatable
         if ((_AbilityTable.Table[Ability.CurHealth] -= damage) <= 0f)
         {
             _Animator.SetInteger(_AnimControlKey, Death);
+            _Animator.Play(EnemyAnimator.DeathAnimation);
 
             _UpdateRoutine.StopRoutine();
             _ActionRoutine.StopRoutine();
