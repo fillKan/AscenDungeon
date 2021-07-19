@@ -89,7 +89,10 @@ public class TouchController : MonoBehaviour
     {
         if (IsMobilePlatform())
         {
-            return Input.GetTouch(0).position;
+            if (Input.touchCount > 0) {
+                return Input.GetTouch(0).position;
+            }
+            return _BeganInputPoint;
         }
         else
         {
@@ -124,7 +127,7 @@ public class TouchController : MonoBehaviour
         }
         else
         {
-            _CurrentPhase = TouchPhase.Ended;
+            _CurrentPhase = TouchPhase.Canceled;
         }
 #endif
 
