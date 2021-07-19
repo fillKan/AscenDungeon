@@ -1319,6 +1319,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4010405842001786435, guid: 01325a20e41267a488041a24730ae7f6,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5810549494006058011, guid: 01325a20e41267a488041a24730ae7f6,
         type: 3}
       propertyPath: m_Name
@@ -2169,6 +2174,14 @@ MonoBehaviour:
     EffectOrigin: {fileID: 4009454108664962646, guid: 07e55eabd22b3224baaf51b4c46b46e7,
       type: 3}
     HoldingCount: 2
+  - EffectKind: 6
+    EffectOrigin: {fileID: 1254864109106826464, guid: 8730b799ad1040f4cb5a953d53264fbf,
+      type: 3}
+    HoldingCount: 1
+  - EffectKind: 8
+    EffectOrigin: {fileID: 1788719513009273583, guid: 33bab2578e42dcd4ab0b6dc9822cbbdd,
+      type: 3}
+    HoldingCount: 1
 --- !u!4 &1026448712
 Transform:
   m_ObjectHideFlags: 0
