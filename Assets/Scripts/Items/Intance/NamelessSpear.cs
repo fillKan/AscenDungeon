@@ -67,11 +67,6 @@ public class NamelessSpear : Item
     {
         _AttackStack = 0;
 
-        if (!_IsAlreadyInit)
-        {
-            _AnimHash = _Animator.GetParameter(0).nameHash;
-            _IsAlreadyInit = true;
-        }
         switch (onSlot)
         {
             case SlotType.Accessory:
@@ -82,9 +77,12 @@ public class NamelessSpear : Item
                 break;
             case SlotType.Weapon:
                 {
-                    if (_Player == null)
+                    if (!_IsAlreadyInit)
                     {
-                        Debug.Assert(transform.root.TryGetComponent(out _Player));
+                        _AnimHash = _Animator.GetParameter(0).nameHash;
+                        _IsAlreadyInit = true;
+
+                        transform.root.TryGetComponent(out _Player);
                         _CollisionArea.SetEnterAction(HitAction);
                     }
                 }

@@ -90,6 +90,9 @@ public class RobotsBossGunner : MonoBehaviour, IObject, ICombatable
         _BodyAnimator.SetInteger(_BodyControlKey, Body_Death);
         _ArmAnimator.SetInteger(_ArmControlKey, Arm_Death);
 
+        _BodyAnimator.Play(EnemyAnimator.DeathAnimation);
+        _ArmAnimator.Play(EnemyAnimator.DeathAnimation);
+
         StartCoroutine(DeathRoutine());
     }
     public void IInit()
