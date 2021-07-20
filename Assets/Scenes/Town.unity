@@ -4771,6 +4771,16 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 281193025600683470, guid: 596ca2a92ccf6fe47bc909af532aec22,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 382775183027116254, guid: 596ca2a92ccf6fe47bc909af532aec22,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 420610223631497313, guid: 596ca2a92ccf6fe47bc909af532aec22,
         type: 3}
       propertyPath: m_textInfo.lineCount
@@ -5354,6 +5364,11 @@ PrefabInstance:
     - target: {fileID: 2180473615066090613, guid: 596ca2a92ccf6fe47bc909af532aec22,
         type: 3}
       propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2325614827757715017, guid: 596ca2a92ccf6fe47bc909af532aec22,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2374218410678527328, guid: 596ca2a92ccf6fe47bc909af532aec22,
