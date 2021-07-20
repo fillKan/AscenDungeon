@@ -64,7 +64,11 @@ public class TouchController : MonoBehaviour
             {
                 case TouchPhase.Began:
                     {
-                        return Input.GetMouseButtonDown(0);
+                        return (Input.GetMouseButtonDown(0));
+                             
+
+
+
                     }
                 case TouchPhase.Moved:
                     {
@@ -135,12 +139,11 @@ public class TouchController : MonoBehaviour
                 case TouchPhase.Began:
                     {
                         _FirstInputPoint = _BeganInputPoint = InputPosition();
-                       
+
                         pointA = InputPosition();
-
-
-                        circle.transform.position = pointA * -1;
-                        outerC.transform.position = pointA * -1;
+                       
+                        circle.transform.position = pointA * 1;
+                        outerC.transform.position = pointB * 1;
                         circle.GetComponent<Image>().enabled = true;
                         outerC.GetComponent<Image>().enabled = true;
                     }
@@ -149,15 +152,20 @@ public class TouchController : MonoBehaviour
                     {
                         
                         Vector2 inputPosition = InputPosition();
-                        Vector2 direction = (inputPosition - _BeganInputPoint).normalized;
+                      //  Vector2 direction = (inputPosition - _BeganInputPoint).normalized;
 
 
                         pointB = InputPosition();
-
+                        
                         Vector2 offset = pointB - pointA;
-                            Vector2 direct = Vector2.ClampMagnitude(offset, 1.0f);
-                            circle.transform.position = new Vector2(pointA.x, pointA.y);
-                            if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+                        Vector2 direction = Vector2.ClampMagnitude(offset, 50f);
+                       
+                        circle.transform.position = new Vector2(pointA.x + direction.x, pointA.y ) * 1;
+
+
+                        outerC.transform.position = pointA;
+
+                        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
                             {
                                 if (Vector2.Distance(inputPosition, _BeganInputPoint) >= NeedMovingLength)
                                 {
