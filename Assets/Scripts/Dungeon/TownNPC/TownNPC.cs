@@ -31,13 +31,9 @@ public class TownNPC : MonoBehaviour
         TryGetComponent(out _Renderer);
         TryGetComponent(out _Animator);
     }
-    private void OnBecameVisible() 
+    private void Start() 
     {
         StartCoroutine(_MoveRoutine = MoveRoutine());
-    }
-    private void OnBecameInvisible() 
-    {
-        StopMoveRoutine();
     }
     private void Init()
     {
