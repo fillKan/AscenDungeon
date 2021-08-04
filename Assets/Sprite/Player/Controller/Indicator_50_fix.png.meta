@@ -8,6 +8,12 @@ TextureImporter:
   - first:
       213: -7682923868978184960
     second: Indicator_50_fix_1
+  - first:
+      213: 877289928653094539
+    second: Indicator_50_fix_2
+  - first:
+      213: 6204451637747790578
+    second: Indicator_50_fix_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -29,6 +35,7 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -60,9 +67,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -108,12 +118,12 @@ TextureImporter:
       name: Indicator_50_fix_0
       rect:
         serializedVersion: 2
-        x: 20
-        y: 6
-        width: 196
-        height: 196
+        x: 13
+        y: 317
+        width: 194
+        height: 195
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -129,12 +139,12 @@ TextureImporter:
       name: Indicator_50_fix_1
       rect:
         serializedVersion: 2
-        x: 235
-        y: 39
+        x: 228
+        y: 349
         width: 284
         height: 124
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -142,6 +152,48 @@ TextureImporter:
       bones: []
       spriteID: 00d7f217275c06590800000000000000
       internalID: -7682923868978184960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indicator_50_fix_2
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 115
+        width: 194
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8e3562ca82cc2c00800000000000000
+      internalID: 877289928653094539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indicator_50_fix_3
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 116
+        width: 194
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f23c0654e3aa1650800000000000000
+      internalID: 6204451637747790578
       vertices: []
       indices: 
       edges: []
