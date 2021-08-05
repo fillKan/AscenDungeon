@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e1549c34ce093be469d9c328cbffc51c
+guid: 7ef8076574912dd47bfa3839df6b2223
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3091812230915493593
-    second: GreatSword_SpriteOnly_0
+      213: 1839794068342316736
+    second: NamelessSpear_Sprite
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -47,10 +47,10 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.47, y: 0.5}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 72, y: 144, z: 72, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -106,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GreatSword_SpriteOnly_0
+      name: NamelessSpear_Sprite
       rect:
         serializedVersion: 2
-        x: 35
-        y: 84
-        width: 166
-        height: 166
+        x: 69
+        y: 133
+        width: 202
+        height: 202
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -120,8 +120,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 721f218382da715d0800000000000000
-      internalID: -3091812230915493593
+      spriteID: 0ce1a6f15f2488910800000000000000
+      internalID: 1839794068342316736
       vertices: []
       indices: 
       edges: []
