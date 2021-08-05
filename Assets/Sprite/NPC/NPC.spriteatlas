@@ -32,7 +32,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 3de42b8d26ab6a04b8e0953fed32ac14, type: 3}
-    totalSpriteSurfaceArea: 1865584
+    totalSpriteSurfaceArea: 1851926
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -52,6 +52,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 40c93032e1a520942acd9253bbf0879d, type: 3}
   - {fileID: 21300000, guid: 9963cfb3734acf148afd677b5f45bb89, type: 3}
   - {fileID: 21300000, guid: 8865332400ac4664389ad973207a57b5, type: 3}
+  - {fileID: 21300000, guid: 2699fb6445d5da54fb4dcbc1424fad3e, type: 3}
   - {fileID: 21300000, guid: fc2158b42b5cbfb47a98001e467eb013, type: 3}
   - {fileID: 21300000, guid: 8655e0059e1feb147810e18702eefbe0, type: 3}
   - {fileID: 21300000, guid: e3b7c91599bf8da4ead7cf014996134a, type: 3}
@@ -82,7 +83,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 92babbe867a397249b98c993b6eb17cc, type: 3}
   - {fileID: 21300000, guid: f989f3294b9f1534483d97c47a2d60fa, type: 3}
   - {fileID: 21300000, guid: 4c903b29ad752b84a8cc098c15b79554, type: 3}
-  - {fileID: 21300000, guid: b3b1dc69fd379dc408db6237b0f09991, type: 3}
   - {fileID: 21300000, guid: e8045699adfc0e84db5210167e988248, type: 3}
   - {fileID: 21300000, guid: 5911fbb9ec37d9e4884627326384119a, type: 3}
   - {fileID: 21300000, guid: 87d071d9f88196247b960d0cc3a1be39, type: 3}
@@ -122,6 +122,7 @@ SpriteAtlas:
   - NPC-1-Idle-3
   - Merchant-1
   - Receptionist-2
+  - Notify
   - NPC-2-Move-2
   - Receptionist-1
   - NPC-4-Move-4
@@ -152,7 +153,6 @@ SpriteAtlas:
   - NPC-1-Move-4
   - NPC-3-Move-3
   - NPC-2-Idle-6
-  - Notify
   - Collector-5
   - Receptionist-4
   - NPC-3-Idle-3
