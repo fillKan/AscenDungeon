@@ -20,6 +20,7 @@ public class SystemMessage : Singleton<SystemMessage>
         MessageBox.SetActive(true);
 
         MessageText.text = message;
+        MessageText.gameObject.SetActive(true);
 
         SoundManager.Instance.PlaySound(SoundName.ErrorWindow);
     }
@@ -55,5 +56,7 @@ public class SystemMessage : Singleton<SystemMessage>
         Background.SetActive(false);
         MessageBox.SetActive(false);
         _CheckMessageBox.SetActive(false);
+
+        MessageText.gameObject.SetActive(false);
     }
 }
