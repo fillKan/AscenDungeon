@@ -387,7 +387,7 @@ PrefabInstance:
     - target: {fileID: 193889719790686061, guid: 51e73a3e3f1d2b947bbbed0df04f4304,
         type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 16777215
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 538912809709443618, guid: 51e73a3e3f1d2b947bbbed0df04f4304,
         type: 3}
@@ -613,11 +613,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2466138703948735744, guid: 51e73a3e3f1d2b947bbbed0df04f4304,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.5137255
       objectReference: {fileID: 0}
     - target: {fileID: 2622384081754475443, guid: 51e73a3e3f1d2b947bbbed0df04f4304,
         type: 3}
@@ -1700,6 +1695,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4010405842001786435, guid: 01325a20e41267a488041a24730ae7f6,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5810549493965192804, guid: 01325a20e41267a488041a24730ae7f6,
         type: 3}
       propertyPath: m_Controller

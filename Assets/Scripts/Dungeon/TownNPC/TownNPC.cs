@@ -57,12 +57,11 @@ public class TownNPC : MonoBehaviour
             float wait = Random.Range(_MoveWaitMin, _MoveWaitMax);
 
             _Animator.SetInteger(_AnimControlHash, Idle);
-            for (float i = 0f; i < wait; i += Time.deltaTime * Time.timeScale)
-                yield return null;
+            yield return new WaitForSeconds(wait);
             _Animator.SetInteger(_AnimControlHash, Move);
             
             float move = Random.Range(_MoveTimeMin, _MoveTimeMax);
-            Vector3 direction = Vector2.right * Mathf.Sign(Random.Range(-1, 1 +1));
+            Vector3 direction = new Vector3(Mathf.Sign(Random.Range(-1, 1 +1)), 0, 0);
 
             // 더 이상 direction의 방향으로 움직일 수 없다면, 방향을 반대로 바꾼다.
             if (transform.localPosition.x >= +_MoveRangeX && direction.x > 0 ||
