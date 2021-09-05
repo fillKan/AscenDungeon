@@ -30,7 +30,7 @@ public class DungeonClearUI : MonoBehaviour
         for (int i = 0; i < UnlockItems.Length; ++i)
         {
             
-            ItemBoxes[i].sprite = UnlockItems[i].Sprite;
+            ItemBoxes[i].sprite = UnlockItems[i].GetItemInfo.ItemSprite;
             ItemStateSaver.Instance.ItemUnlock(UnlockItems[i].ID);
          
 

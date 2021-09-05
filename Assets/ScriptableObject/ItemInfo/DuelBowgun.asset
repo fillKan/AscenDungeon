@@ -22,6 +22,6 @@ MonoBehaviour:
   _WeaponText: "\n\uC5F0\uC18D\uC73C\uB85C \uD654\uC0B4\uC744\n\uB450 \uBC1C \uBC1C\uC0AC\uD569\uB2C8\uB2E4."
   _WeaponTextSize: 18
   _WeaponAblity: 
-  _AccessoryText: 
+  _AccessoryText: '-'
   _AccessoryTextSize: 18
   _AccessoryAblity: 
