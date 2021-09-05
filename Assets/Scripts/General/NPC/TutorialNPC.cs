@@ -7,11 +7,12 @@ public class TutorialNPC : NPC
 {
     public override void Interaction()
     {
-        SystemMessage.Instance.ShowCheckMessage("튜토리얼을\n진행하시겠습니까?", result => 
+        SystemMessage.Instance.ShowCheckMessage("튜토리얼을\n진행하시겠습니까?", delegate(bool result) 
         {
             if (result)
             {
-                SceneManager.LoadScene((int)SceneIndex.Tutorial);
+                MainCamera.Instance.Fade(1f, FadeType.In, 
+                    () => SceneManager.LoadScene((int)SceneIndex.Tutorial));
             }
         });
     }
