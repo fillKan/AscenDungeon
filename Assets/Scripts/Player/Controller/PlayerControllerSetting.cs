@@ -91,7 +91,7 @@ public class PlayerControllerSetting : MonoBehaviour
         _TouchConSelection.Image.sprite = _DefaultImage;
 
         _VirtualJoystick.gameObject.SetActive(true);
-        _TouchController.enabled = false;
+        _TouchController.gameObject.SetActive(false);
 
         ControllerSwapEvnt?.Invoke(Controller.Joystick);
     }
@@ -103,7 +103,7 @@ public class PlayerControllerSetting : MonoBehaviour
         _TouchConSelection.Image.sprite = _SelectedImage;
 
         _VirtualJoystick.gameObject.SetActive(false);
-        _TouchController.enabled = true;
+        _TouchController.gameObject.SetActive(true);
 
         ControllerSwapEvnt?.Invoke(Controller.Touch);
     }

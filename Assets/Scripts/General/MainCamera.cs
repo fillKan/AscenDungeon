@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public enum FadeType { In, Out }
@@ -61,7 +62,27 @@ public class MainCamera : Singleton<MainCamera>
         // -- 화면이 서서히 밝아지게 --
         FadeFilter.color = Color.black;
 
-        Fade(1f, FadeType.Out);
+        Fade(1f, FadeType.Out, () => 
+        {
+            if (SceneManager.GetActiveScene().buildIndex == (int)SceneIndex.Town)
+                return;
+
+            switch (SceneManager.GetActiveScene().buildIndex)
+            {
+                case (int)SceneIndex.Forest:
+                    SystemMessage.Instance.ShowToastMessage("STAGE 1 - 고블린의 숲");
+                    break;
+                case (int)SceneIndex.DeepSea:
+                    SystemMessage.Instance.ShowToastMessage("STAGE 2 - 깊은 심해");
+                    break;
+                case (int)SceneIndex.SteamPunk:
+                    SystemMessage.Instance.ShowToastMessage("STAGE 3 - 고철 공장");
+                    break;
+                default:
+                    SystemMessage.Instance.ShowToastMessage("선수 입장~");
+                    break;
+            }
+        });
         // -- 화면이 서서히 밝아지게 --
 
         _Player = FindObjectOfType<Player>();

@@ -11,7 +11,11 @@ public class SystemMessage : Singleton<SystemMessage>
     [SerializeField] private GameObject _CheckMessageBox;
     [SerializeField] private SubscribableButton _YesButton;
     [SerializeField] private SubscribableButton  _NoButton;
-    
+
+    [Header("ToastMessage Property")]
+    [SerializeField] private ToastMessage _ToastMsg;
+    private Pool<ToastMessage> _ToastMsgPool;
+
     public void ShowMessage(string message)
     {
         Time.timeScale = 0f;
@@ -48,6 +52,24 @@ public class SystemMessage : Singleton<SystemMessage>
              _NoButton.ButtonActionReset();
             _YesButton.ButtonActionReset();
         }
+    }
+    public void ShowToastMessage(string message)
+    {
+        if (_ToastMsgPool == null)
+        {
+            _ToastMsgPool = new Pool<ToastMessage>();
+            _ToastMsgPool.Init(2, _ToastMsg, msg => 
+            {
+                msg.transform.SetParent(transform.parent);
+
+                msg.transform.localPosition = _ToastMsg.transform.localPosition;
+                msg.transform.localScale = Vector3.one;
+
+                msg.OnAnimPlayOver += o => _ToastMsgPool.Add(o);
+            });
+        }
+        var toast = _ToastMsgPool.Get();
+            toast.ShowMessage(message);
     }
     public void CloseMessage()
     {

@@ -14,9 +14,10 @@ public class StageClearNotice : MonoBehaviour
         {
             _AnimParameterName = _Animator.GetParameter(0).name;
             gameObject.SetActive(false);
+
+            StageEventLibrary.Instance.StageClearEvent += Show;
+            StageEventLibrary.Instance.StageEnterEvent += Hide;
         }
-        StageEventLibrary.Instance.StageClearEvent += Show;
-        StageEventLibrary.Instance.StageEnterEvent += Hide;
     }
     private void Show()
     {
