@@ -78,6 +78,9 @@ public class MainCamera : Singleton<MainCamera>
                 case (int)SceneIndex.SteamPunk:
                     SystemMessage.Instance.ShowToastMessage("STAGE 3 - 고철 공장");
                     break;
+                case (int)SceneIndex.Tutorial:
+                    SystemMessage.Instance.ShowToastMessage("STAGE 0 - 튜토리얼");
+                    break;
                 default:
                     SystemMessage.Instance.ShowToastMessage("선수 입장~");
                     break;
