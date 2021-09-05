@@ -5,7 +5,6 @@ using Kimbokchi;
 
 public class ItemPackmanNPC : NPC
 {
-    [SerializeField] private SubscribableButton _InteractionBtn;
     [SerializeField] private DropItem DropItem;
     [SerializeField] private Transform DropItemHolder;
 
@@ -13,18 +12,9 @@ public class ItemPackmanNPC : NPC
     [SerializeField] private float _CurveSpeed;[Space()]
     [SerializeField] private Vector2[] _Points;
 
-    private void Start()
-    {
-        _InteractionBtn.ButtonAction += state =>
-        {
-            if (state == ButtonState.Down)
-                Interaction();
-        };
-    }
-
     public override void Interaction()
     {
-        SystemMessage.Instance.ShowCheckMessage("±¤°í¸¦ ½ÃÃ»ÇÏ°í\n¾ÆÀÌÅÛÀ» È¹µæÇÏ½Ã°Ú½À´Ï±î?", result =>
+        SystemMessage.Instance.ShowCheckMessage("ê´‘ê³ ë¥¼ ì‹œì²­í•˜ê³ \nì•„ì´í…œì„ íšë“í•˜ì‹œê² ìŠµë‹ˆê¹Œ?", result =>
         {
             if (result)
             {

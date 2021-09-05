@@ -6,6 +6,9 @@ using Manager = NPCInteractionManager;
 public abstract class NPC : MonoBehaviour
 {
     [SerializeField] protected string _Key;
+    [SerializeField] protected SubscribableButton _InteractionBtn;
+    
+    private void Start() => Init();
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,6 +28,15 @@ public abstract class NPC : MonoBehaviour
     }
 
     public abstract void Interaction();
+
+    protected virtual void Init()
+    {
+        _InteractionBtn.ButtonAction += state => 
+        {
+            if (state == ButtonState.Down) 
+                Interaction();
+        };
+    }    
     public virtual void PlayerEvent(bool enter)
     {
         SetEnable(enter);
