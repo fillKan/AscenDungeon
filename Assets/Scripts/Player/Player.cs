@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using BackEnd;
+using PAM = PlayerActionManager;
+
 public static class InputExtension
 {
     // 현재 입력이 'UI를 대상으로한 입력인가'의 여부를 반환
@@ -272,6 +274,9 @@ public class Player : MonoBehaviour, ICombatable
     // ========== Dash Order ========== //
     public void DashOrder(UnitizedPosH direction)
     {
+        if (PAM.Instance[PlayerAction.Dash])
+            return;
+        
         if (_DashRoutine.IsFinished() && _DashCoolRoutine.IsFinished())
         {
             Direction dir = Direction.None;
@@ -416,6 +421,9 @@ public class Player : MonoBehaviour, ICombatable
 
     public void MoveOrder(Direction direction)
     {
+        if (PAM.Instance.IsLockedAction(direction))
+            return;
+        
         if (!mIsInputLock && AbilityTable[Ability.CurHealth] > 0f && _MoveRoutine.IsFinished() && _DashRoutine.IsFinished())
         {
             Vector2 movePoint = Vector2.zero;
