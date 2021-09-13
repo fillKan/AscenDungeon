@@ -302,19 +302,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6271211847113750244, guid: d34d545c389e2b045989735168b56e4b,
-        type: 3}
-      propertyPath: m_text
-      value: "\uB300\uD1B5\uB839\uC740 \uC870\uC57D\uC744 \uCCB4\uACB0\xB7\uBE44\uC900\uD558\uACE0,
-        \uC678\uAD50\uC0AC\uC808\uC744 \uC2E0\uC784\xB7\uC811\uC218 \uB610\uB294
-        \uD30C\uACAC\uD558\uBA70, \uC120\uC804\uD3EC\uACE0\uC640 \uAC15\uD654\uB97C
-        \uD55C\uB2E4. \uBAA8\uB4E0 \uAD6D\uBBFC\uC740 \uAC70\uC8FC\xB7\uC774\uC804\uC758
-        \uC790\uC720\uB97C \uAC00\uC9C4\uB2E4. \uD55C \uD68C\uACC4\uC5F0\uB3C4\uB97C
-        \uB118\uC5B4 \uACC4\uC18D\uD558\uC5EC \uC9C0\uCD9C\uD560 \uD544\uC694\uAC00
-        \uC788\uC744 \uB54C\uC5D0\uB294 \uC815\uBD80\uB294 \uC5F0\uD55C\uC744 \uC815\uD558\uC5EC
-        \uACC4\uC18D\uBE44\uB85C\uC11C \uAD6D\uD68C\uC758 \uC758\uACB0\uC744 \uC5BB\uC5B4\uC57C
-        \uD55C\uB2E4.\r"
-      objectReference: {fileID: 0}
     - target: {fileID: 6421993585316037134, guid: d34d545c389e2b045989735168b56e4b,
         type: 3}
       propertyPath: m_PresetInfoIsWorld

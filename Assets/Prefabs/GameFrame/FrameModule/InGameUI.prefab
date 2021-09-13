@@ -3139,6 +3139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5037697164811508099}
   - component: {fileID: 8902417755173467020}
+  - component: {fileID: 3197401780296233074}
   m_Layer: 5
   m_Name: Dialog
   m_TagString: Untagged
@@ -3181,6 +3182,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _WriteDelay: 0.08
   _LogText: {fileID: 4801661184576063552}
+  _Animator: {fileID: 3197401780296233074}
+  _RootOfCharacter: {fileID: 7248389078918035251}
+  _RootOfDialogBox: {fileID: 1339188843791699608}
+  _InitPosOfCharacter: {x: 161, y: -1100, z: 0}
+  _InitPosOfDialogBox: {x: 0, y: -895, z: 0}
   _TestOfTextField: "\uB300\uD1B5\uB839\uC740 \uC870\uC57D\uC744 \uCCB4\uACB0\xB7\uBE44\uC900\uD558\uACE0,
     \uC678\uAD50\uC0AC\uC808\uC744 \uC2E0\uC784\xB7\uC811\uC218 \uB610\uB294 \uD30C\uACAC\uD558\uBA70,
     \uC120\uC804\uD3EC\uACE0\uC640 \uAC15\uD654\uB97C \uD55C\uB2E4. \uBAA8\uB4E0
@@ -3189,6 +3195,25 @@ MonoBehaviour:
     \uD544\uC694\uAC00 \uC788\uC744 \uB54C\uC5D0\uB294 \uC815\uBD80\uB294 \uC5F0\uD55C\uC744
     \uC815\uD558\uC5EC \uACC4\uC18D\uBE44\uB85C\uC11C \uAD6D\uD68C\uC758 \uC758\uACB0\uC744
     \uC5BB\uC5B4\uC57C \uD55C\uB2E4.\r"
+--- !u!95 &3197401780296233074
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2890801408468853264}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 96d48dea17dfa0b49abd93166d25a41a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2932822498368992978
 GameObject:
   m_ObjectHideFlags: 0
@@ -6062,14 +6087,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uB300\uD1B5\uB839\uC740 \uC870\uC57D\uC744 \uCCB4\uACB0\xB7\uBE44\uC900\uD558\uACE0,
-    \uC678\uAD50\uC0AC\uC808\uC744 \uC2E0\uC784\xB7\uC811\uC218 \uB610\uB294 \uD30C\uACAC\uD558\uBA70,
-    \uC120\uC804\uD3EC\uACE0\uC640 \uAC15\uD654\uB97C \uD55C\uB2E4. \uBAA8\uB4E0
-    \uAD6D\uBBFC\uC740 \uAC70\uC8FC\xB7\uC774\uC804\uC758 \uC790\uC720\uB97C \uAC00\uC9C4\uB2E4.
-    \uD55C \uD68C\uACC4\uC5F0\uB3C4\uB97C \uB118\uC5B4 \uACC4\uC18D\uD558\uC5EC \uC9C0\uCD9C\uD560
-    \uD544\uC694\uAC00 \uC788\uC744 \uB54C\uC5D0\uB294 \uC815\uBD80\uB294 \uC5F0\uD55C\uC744
-    \uC815\uD558\uC5EC \uACC4\uC18D\uBE44\uB85C\uC11C \uAD6D\uD68C\uC758 \uC758\uACB0\uC744
-    \uC5BB\uC5B4\uC57C \uD55C\uB2E4.\r"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ea300de88d890424ca3beeb8446a80e3, type: 2}
   m_sharedMaterial: {fileID: 6960670983000816079, guid: ea300de88d890424ca3beeb8446a80e3,
