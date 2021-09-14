@@ -3,13 +3,18 @@ using System.Text;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Dialog : Singleton<Dialog>
 {
     private static readonly string BeginAnimation = "Dialog_Begin";
 
     [SerializeField] private float _WriteDelay = 0.1f;
+    
     [SerializeField] private TMPro.TextMeshProUGUI _LogText;
+    [SerializeField] private TMPro.TextMeshProUGUI _NameText;
+    [SerializeField] private Image _ImageOfCharacter;
+
     [SerializeField] private Animator _Animator;
 
 
@@ -47,6 +52,12 @@ public class Dialog : Singleton<Dialog>
 
         _RootOfCharacter.SetActive(false);
         _RootOfDialogBox.SetActive(false);
+    }
+
+    public void UpdateLog(string name, Sprite image)
+    {
+        _NameText.text = name;
+        _ImageOfCharacter.sprite = image;
     }
 
     public void WriteLog(string text, Action callBack)
