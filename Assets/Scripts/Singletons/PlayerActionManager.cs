@@ -47,6 +47,16 @@ public class PlayerActionManager : Singleton<PlayerActionManager>
     }
 
     /// <summary>
+    /// 이동 동작의 잠김 여부를 설정한다.
+    /// </summary>
+    public void SetMoveLock(bool isLock)
+    {
+        SetActionLock(PlayerAction.MoveHorizontal, isLock);
+        SetActionLock(PlayerAction.MoveVertical, isLock);
+        SetActionLock(PlayerAction.Dash, isLock);
+    }
+
+    /// <summary>
     /// 입력한 방향으로의 이동이 가능한지 반환한다.
     /// </summary>
     public bool IsLockedAction(Direction moveDir)
