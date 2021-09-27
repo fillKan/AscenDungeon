@@ -60,10 +60,11 @@ public class Dialog : Singleton<Dialog>
         _ImageOfCharacter.sprite = image;
     }
 
-    public void WriteLog(string text, Action callBack)
+    public void WriteLog(string name, string text, Action callBack)
     {
         SetTextQueue(text);
         _WriteLogCallback = callBack;
+        _NameText.text = name;
 
         if (_Animator.enabled)
         {
@@ -117,8 +118,7 @@ public class Dialog : Singleton<Dialog>
     [ContextMenu("TestOfWriteLog")]
     private void TestOfWriteLog()
     {
-        _NameText.text = "훈련교관";
-        WriteLog(_TestOfTextField, null);
+        WriteLog("훈련교관", _TestOfTextField, null);
     }
 
     [ContextMenu("TestOfCloseLog")]
