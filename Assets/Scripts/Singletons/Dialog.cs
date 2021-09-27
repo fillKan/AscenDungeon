@@ -77,13 +77,27 @@ public class Dialog : Singleton<Dialog>
         _Animator.Play(BeginAnimation);
     }
 
+    public void SkipLog()
+    {
+        if (_WriteLogCoroutine.IsFinished())
+        {
+            CloseLog();
+        }
+        else if (_TextQueue.Count != 0)
+        {
+            while (_TextQueue.Count != 0) {
+                _WriteBuilder.Append(_TextQueue.Dequeue());
+            }
+            _LogText.text = _WriteBuilder.ToString();
+        }
+    }
+
     public void CloseLog()
     {
         _WriteLogCoroutine.StopRoutine();
         _Animator.SetBool(_AnimControlKey, true);
         
         _TextQueue.Clear();
-        _LogText.text = string.Empty;
     }
 
     private void Update()
@@ -94,7 +108,7 @@ public class Dialog : Singleton<Dialog>
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            TestOfCloseLog();
+            SkipLog();
         }
     }
 
@@ -103,6 +117,7 @@ public class Dialog : Singleton<Dialog>
     [ContextMenu("TestOfWriteLog")]
     private void TestOfWriteLog()
     {
+        _NameText.text = "훈련교관";
         WriteLog(_TestOfTextField, null);
     }
 
@@ -165,6 +180,9 @@ public class Dialog : Singleton<Dialog>
 
         _RootOfCharacter.SetActive(false);
         _RootOfDialogBox.SetActive(false);
+
+         _LogText.text = string.Empty;
+        _NameText.text = string.Empty;
     }
 
 #endregion Animation Event

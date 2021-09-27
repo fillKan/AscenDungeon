@@ -3182,6 +3182,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _WriteDelay: 0.08
   _LogText: {fileID: 4801661184576063552}
+  _NameText: {fileID: 3334624715289557034}
+  _ImageOfCharacter: {fileID: 6916972696847404540}
   _Animator: {fileID: 3197401780296233074}
   _RootOfCharacter: {fileID: 7248389078918035251}
   _RootOfDialogBox: {fileID: 1339188843791699608}
