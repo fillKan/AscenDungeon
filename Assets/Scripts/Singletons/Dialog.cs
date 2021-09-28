@@ -31,6 +31,11 @@ public class Dialog : Singleton<Dialog>
     [Header("Test Property")]
     [SerializeField] [TextArea(3, 6)] private string _TestOfTextField;
     
+    /// <summary>
+    /// 출력이 모두 끝난 상태에서 터치 (이름 겁나 긺)
+    /// </summary>
+    public event Action OnTouchOutputFinish;
+
     private int _AnimControlKey;
     private Action _WriteLogCallback;
     private Coroutine _WriteLogCoroutine;
@@ -129,6 +134,22 @@ public class Dialog : Singleton<Dialog>
 
 #endregion Test Handle    
 
+#region Touch Event
+
+    public void OnTouchDialog()
+    {
+        if (_TextQueue.Count != 0)
+        {
+            while (_TextQueue.Count != 0) {
+                _WriteBuilder.Append(_TextQueue.Dequeue());
+            }
+            _LogText.text = _WriteBuilder.ToString();
+            return;
+        }
+        OnTouchOutputFinish?.Invoke();
+    }
+
+#endregion Touch Event
     private void SetTextQueue(string text)
     {
         _QueueBuilder.Clear();
