@@ -100,6 +100,10 @@ public class VirtualJoystick : MonoBehaviour
                 {
                     _CoreButton.ButtonAction += state =>
                     {
+                        // 컨트롤러가 비활성화 되어있다면 중단.
+                        if (!PlayerActionManager.Instance.EnableController)
+                            return;
+                        
                         switch (CrntCoreBtnMode)
                         {
                             case CoreBtnMode.AttackOrder:
@@ -169,6 +173,10 @@ public class VirtualJoystick : MonoBehaviour
 
         void MoveOrderToPlayer(SubscribableButton button, ButtonState state, Direction direction)
         {
+            // 컨트롤러가 비활성화 되어있다면 중단
+            if (!PlayerActionManager.Instance.EnableController)
+                return;
+            
             switch (state)
             {
                 case ButtonState.Down:

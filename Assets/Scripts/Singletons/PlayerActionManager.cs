@@ -14,6 +14,14 @@ public class PlayerActionManager : Singleton<PlayerActionManager>
     private Dictionary<PlayerAction, bool> _ActionLocker = new Dictionary<PlayerAction, bool>();
 
     /// <summary>
+    /// 플레이어 조작키의 활성화 여부.
+    /// </summary>
+    public bool EnableController
+    {
+        get; private set;
+    }
+
+    /// <summary>
     /// 해당 동작의 잠김 여부를 반환한다.
     /// </summary>
     public bool this[PlayerAction action]
@@ -36,6 +44,7 @@ public class PlayerActionManager : Singleton<PlayerActionManager>
     /// </summary>
     public void SetActionLock(PlayerAction action, bool isLock)
     {
+        Debug.Log($"SetActionLock :: {action} : {isLock}");
         if (_ActionLocker.ContainsKey(action))
         {
             _ActionLocker[action] = isLock;
@@ -54,6 +63,14 @@ public class PlayerActionManager : Singleton<PlayerActionManager>
         SetActionLock(PlayerAction.MoveHorizontal, isLock);
         SetActionLock(PlayerAction.MoveVertical, isLock);
         SetActionLock(PlayerAction.Dash, isLock);
+    }
+
+    /// <summary>
+    /// 플레이어 조작키를 활성화/비활성화한다.
+    /// </summary>
+    public void SetEnableController(bool isEnable)
+    {
+        EnableController = isEnable;
     }
 
     /// <summary>

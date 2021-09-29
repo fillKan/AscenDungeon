@@ -118,6 +118,10 @@ public class TouchController : MonoBehaviour
     }
     private void Update()
     {
+        // 컨트롤러가 비활성화 되어있다면 중단.
+        if (!PlayerActionManager.Instance.EnableController)
+            return;
+
 #if UNITY_EDITOR
         CurrentPhaseCheck();
 #else

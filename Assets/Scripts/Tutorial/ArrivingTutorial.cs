@@ -16,16 +16,20 @@ public class ArrivingTutorial : TutorialBase
 
     public override void StartTutorial()
     {
-        // TODO :: 튜토리얼 진행...
+        base.StartTutorial();
         gameObject.SetActive(true);
+    }
+
+    public override void EndTutorial()
+    {
+        base.EndTutorial();
+        gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) 
-        {
-            OnTutorialClear();
-            gameObject.SetActive(false);
+        if (other.CompareTag("Player")) {
+            EndTutorial();
         }
     }
 }
