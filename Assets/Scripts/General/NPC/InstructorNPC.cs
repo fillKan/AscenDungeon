@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TutorialNPC : NPC
+public class InstructorNPC : NPC
 {
     public override void Interaction()
     {
