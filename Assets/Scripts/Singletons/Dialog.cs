@@ -106,34 +106,6 @@ public class Dialog : Singleton<Dialog>
         _TextQueue.Clear();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            TestOfWriteLog();
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            SkipLog();
-        }
-    }
-
-#region Test Handle
-
-    [ContextMenu("TestOfWriteLog")]
-    private void TestOfWriteLog()
-    {
-        WriteLog("훈련교관", _TestOfTextField, null);
-    }
-
-    [ContextMenu("TestOfCloseLog")]
-    private void TestOfCloseLog()
-    {
-        CloseLog();
-    }
-
-#endregion Test Handle    
-
 #region Touch Event
 
     public void OnTouchDialog()

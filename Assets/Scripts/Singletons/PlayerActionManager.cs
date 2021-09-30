@@ -18,8 +18,9 @@ public class PlayerActionManager : Singleton<PlayerActionManager>
     /// </summary>
     public bool EnableController
     {
-        get; private set;
+        get => _EnableController;
     }
+    private bool _EnableController = true;
 
     /// <summary>
     /// 해당 동작의 잠김 여부를 반환한다.
@@ -70,7 +71,7 @@ public class PlayerActionManager : Singleton<PlayerActionManager>
     /// </summary>
     public void SetEnableController(bool isEnable)
     {
-        EnableController = isEnable;
+        _EnableController = isEnable;
     }
 
     /// <summary>
@@ -89,20 +90,5 @@ public class PlayerActionManager : Singleton<PlayerActionManager>
                 return this[PlayerAction.MoveHorizontal];
         }
         return false;
-    }
-
-    // 테스트용
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            SetActionLock(PlayerAction.MoveVertical, true);
-            return;
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            SetActionLock(PlayerAction.MoveVertical, false);
-            return;
-        }
     }
 }
