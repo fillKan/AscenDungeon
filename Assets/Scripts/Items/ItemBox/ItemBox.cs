@@ -17,7 +17,7 @@ public class ItemBox : MonoBehaviour
         Renderer.sprite = boxSprite.ClosedSprite;
 
         DropItem.Init(containItem);
-        DropItem._InteractBtn = interactionBtn;
+        DropItem.InteractBtn = interactionBtn;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

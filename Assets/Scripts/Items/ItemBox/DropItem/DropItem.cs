@@ -6,8 +6,11 @@ using UnityEngine.EventSystems;
 
 public class DropItem : NPC
 {
-    [FormerlySerializedAs("_InteractionBtn")]
-    public SubscribableButton _InteractBtn;
+    public SubscribableButton InteractBtn
+    {
+        get => _InteractionBtn;
+        set => _InteractionBtn = value;
+    }
 
     [SerializeField] private Animator Animator;
     [SerializeField] private SpriteRenderer Renderer;
@@ -30,8 +33,8 @@ public class DropItem : NPC
     }
     private void Start()
     {
-        if (_InteractBtn != null)
-            _InteractBtn.ButtonAction += IteractionMethod;
+        if (InteractBtn != null)
+            InteractBtn.ButtonAction += IteractionMethod;
     }
     private void Reset()
     {
@@ -54,8 +57,8 @@ public class DropItem : NPC
                 Animator.SetBool(animControlKey, true);
             }
         }
-        if (_InteractBtn != null)
-            _InteractBtn.ButtonAction -= IteractionMethod;
+        if (InteractBtn != null)
+            InteractBtn.ButtonAction -= IteractionMethod;
     }
 
     private void IteractionMethod(ButtonState state)

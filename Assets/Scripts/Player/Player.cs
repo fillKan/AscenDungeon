@@ -422,7 +422,10 @@ public class Player : MonoBehaviour, ICombatable
     public void MoveOrder(Direction direction)
     {
         if (PAM.Instance.IsLockedAction(direction))
+        {
+            Debug.Log("Locked");
             return;
+        }
         
         if (!mIsInputLock && AbilityTable[Ability.CurHealth] > 0f && _MoveRoutine.IsFinished() && _DashRoutine.IsFinished())
         {

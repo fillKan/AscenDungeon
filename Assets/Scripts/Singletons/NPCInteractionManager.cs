@@ -83,7 +83,10 @@ public class NPCInteractionManager : Singleton<NPCInteractionManager>
     
     public void SetActive(string key, bool active)
     {
-        _InteractionObjDic[key].SetActive(active);
+        if (_InteractionObjDic[key] == null)
+            return;
+        
+        _InteractionObjDic[key]?.SetActive(active);
     }
     public void VJoystick_SetCoreBtnMode(CoreBtnMode btnMode)
     {

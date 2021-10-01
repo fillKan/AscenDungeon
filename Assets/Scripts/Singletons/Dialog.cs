@@ -24,8 +24,9 @@ public class Dialog : Singleton<Dialog>
     
     [Space()]
 
-    [SerializeField] private Vector3 _InitPosOfCharacter;
-    [SerializeField] private Vector3 _InitPosOfDialogBox;
+    [SerializeField] private Vector3    _InitPosOfCharacter;
+    [SerializeField] private Vector3    _InitPosOfDialogBox;
+    [SerializeField] private Button     _DialogButton;
 
 
     [Header("Test Property")]
@@ -67,6 +68,8 @@ public class Dialog : Singleton<Dialog>
 
     public void WriteLog(string name, string text, Action callBack)
     {
+        PlayerActionManager.Instance.SetEnableController(false);
+
         SetTextQueue(text);
         _WriteLogCallback = callBack;
         _NameText.text = name;
@@ -100,6 +103,9 @@ public class Dialog : Singleton<Dialog>
 
     public void CloseLog()
     {
+        _DialogButton.enabled = false;
+        PlayerActionManager.Instance.SetEnableController(true);
+
         _WriteLogCoroutine.StopRoutine();
         _Animator.SetBool(_AnimControlKey, true);
         
@@ -164,6 +170,7 @@ public class Dialog : Singleton<Dialog>
 
     private void AE_PlayOverBegin()
     {
+        _DialogButton.enabled = true;
         _WriteLogCoroutine.StartRoutine(WriteLogRoutine());
     }
     private void AE_PlayOverEnd()

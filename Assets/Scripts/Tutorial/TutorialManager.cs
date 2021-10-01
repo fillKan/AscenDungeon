@@ -18,6 +18,7 @@ public class TutorialManager : Singleton<TutorialManager>
 
     private void Start()
     {
+        Inventory.Instance.Clear();
         Dialog.Instance.OnTouchOutputFinish += BeginOfTutorial;
         
         MakeDialogGroup(_CurrentGroupIndex);
@@ -45,10 +46,6 @@ public class TutorialManager : Singleton<TutorialManager>
     {
         Dialog.Instance.CloseLog();
 
-        // 로그가 닫히면, 플레이어는 움직일 수 있다.
-        // 다만 움직임을 제약해야 한다면...그건 튜토리얼에서 처리하도록 한다!
-        PlayerActionManager.Instance.SetEnableController(true);
-
         if (_CurrentTutorialIndex >= _TutorialArray.Length)
             return;
         
@@ -72,9 +69,6 @@ public class TutorialManager : Singleton<TutorialManager>
     
     private void WriteLog()
     {
-        // 로그가 출력되는 동안에는 플레이어가 움직일 수 없다-
-        PlayerActionManager.Instance.SetEnableController(false);
-
         var logData = _DialogQueue.Dequeue();
         Dialog.Instance.WriteLog(logData.Name, logData.Text, null);
     }

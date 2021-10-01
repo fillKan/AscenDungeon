@@ -24,6 +24,9 @@ public class ArrivingTutorial : TutorialBase
     {
         base.EndTutorial();
         gameObject.SetActive(false);
+
+        var player = FindObjectOfType<Player>();
+        player.MoveStop();
     }
 
     private void OnTriggerEnter2D(Collider2D other)

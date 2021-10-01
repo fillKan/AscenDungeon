@@ -3246,6 +3246,7 @@ MonoBehaviour:
   _RootOfDialogBox: {fileID: 1339188843791699608}
   _InitPosOfCharacter: {x: 161, y: -1100, z: 0}
   _InitPosOfDialogBox: {x: 0, y: -895, z: 0}
+  _DialogButton: {fileID: 5622891495682543254}
   _TestOfTextField: "\uB300\uD1B5\uB839\uC740 \uC870\uC57D\uC744 \uCCB4\uACB0\xB7\uBE44\uC900\uD558\uACE0,
     \uC678\uAD50\uC0AC\uC808\uC744 \uC2E0\uC784\xB7\uC811\uC218 \uB610\uB294 \uD30C\uACAC\uD558\uBA70,
     \uC120\uC804\uD3EC\uACE0\uC640 \uAC15\uD654\uB97C \uD55C\uB2E4. \uBAA8\uB4E0
