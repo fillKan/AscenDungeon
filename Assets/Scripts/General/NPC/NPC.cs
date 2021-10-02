@@ -15,7 +15,6 @@ public abstract class NPC : MonoBehaviour
         if (collision.CompareTag("Player")) 
         {
             PlayerEvent(true);
-            Manager.Instance.VJoystick_SetCoreBtnMode(CoreBtnMode.InteractionOrder);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -23,7 +22,6 @@ public abstract class NPC : MonoBehaviour
         if (collision.CompareTag("Player")) 
         {
             PlayerEvent(false);
-            Manager.Instance.VJoystick_SetCoreBtnMode(CoreBtnMode.AttackOrder);
         }
     }
 
@@ -41,6 +39,15 @@ public abstract class NPC : MonoBehaviour
     {
         SetEnable(enter);
         Manager.Instance.SetNowEnableNPC(this, enter);
+
+        if (enter)
+        {
+            Manager.Instance.VJoystick_SetCoreBtnMode(CoreBtnMode.InteractionOrder);
+        }
+        else
+        {
+            Manager.Instance.VJoystick_SetCoreBtnMode(CoreBtnMode.AttackOrder);
+        }
     }
     public virtual void SetEnable(bool enable)
     {
