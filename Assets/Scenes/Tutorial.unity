@@ -322,6 +322,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 125012949}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &125012952 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2076662534573431721, guid: d34d545c389e2b045989735168b56e4b,
+    type: 3}
+  m_PrefabInstance: {fileID: 125012949}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &238762196
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,7 +865,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD29C\uD1A0\uB9AC\uC5BC\uC758 \uC81C\uC655!"
+  m_text: "\uBB34\uC2DC\uBB34\uC2DC\uD55C \uACE0\uBE14\uB9B0!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ea300de88d890424ca3beeb8446a80e3, type: 2}
   m_sharedMaterial: {fileID: 6960670983000816079, guid: ea300de88d890424ca3beeb8446a80e3,
@@ -887,8 +893,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 73.2
-  m_fontSizeBase: 73.2
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1110,7 +1116,7 @@ PlayableDirector:
   - key: {fileID: -7844283996671905535, guid: d739ccdd63abd314895d246bdd242e6f, type: 2}
     value: {fileID: 1810317900}
   - key: {fileID: -2724496784442695310, guid: d739ccdd63abd314895d246bdd242e6f, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 125012952}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &734690527
@@ -2505,7 +2511,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD29C\uD1A0\uB9AC\uC5BC\uC758 \uC81C\uC655!"
+  m_text: "\uBB34\uC2DC\uBB34\uC2DC\uD55C \uACE0\uBE14\uB9B0!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ea300de88d890424ca3beeb8446a80e3, type: 2}
   m_sharedMaterial: {fileID: 6960670983000816079, guid: ea300de88d890424ca3beeb8446a80e3,
@@ -2533,8 +2539,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 73.2
-  m_fontSizeBase: 73.2
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
