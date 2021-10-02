@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HitboxTutorial : TutorialBase
+public class AttackTutorial : TutorialBase
 {
     [SerializeField] private HitBoxObject _HitBoxObject;
 
@@ -19,12 +19,12 @@ public class HitboxTutorial : TutorialBase
         {
             _HitBoxObject.gameObject.SetActive(true);
         }
-        _HitBoxObject.HitEvent += HitEventOfHitBocObject;
+        _HitBoxObject.HitEvent += HitEventOfHitBoxObject;
     }
 
-    private void HitEventOfHitBocObject(GameObject attacker)
+    private void HitEventOfHitBoxObject(GameObject attacker)
     {
         EndTutorial();
-        _HitBoxObject.HitEvent -= HitEventOfHitBocObject;
+        _HitBoxObject.HitEvent -= HitEventOfHitBoxObject;
     }
 }
