@@ -2,45 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HitboxTutorial : TutorialBase, ICombatable
+public class HitboxTutorial : TutorialBase
 {
-    [SerializeField] private AbilityTable   _AbilityTable;
-    [SerializeField] private Animation      _HitAnimation;
+    [SerializeField] private HitBoxObject _HitBoxObject;
 
-    [SerializeField] private int    _NeedHitCount;
-    private int                     _StackHitCount;
-
-    public AbilityTable GetAbility
+    private void Reset()
     {
-        get => _AbilityTable;
-    }
-
-    public void CastBuff(Buff buffType, IEnumerator castedBuff)
-    {
-        StartCoroutine(castedBuff);
-    }
-
-    public void Damaged(float damage, GameObject attacker)
-    {
-        ++_StackHitCount;
-
-        _HitAnimation.Rewind();
-        _HitAnimation.Play();
-
-        var offset = new Vector3(0f, 0.6f, 0f);
-        EffectLibrary.Instance.UsingEffect(EffectKind.Damage, offset + transform.position);
-
-        if (_StackHitCount >= _NeedHitCount)
-        {
-            EndTutorial();
-            // 2147483648 + n 대를 때리면 튜토리얼을 깰 수 있다!
-            _StackHitCount = int.MinValue;
-        }
+        _HitBoxObject = FindObjectOfType<HitBoxObject>();
     }
 
     public override void StartTutorial()
     {
         base.StartTutorial();
-        gameObject.SetActive(true);
+        
+        if (!_HitBoxObject.gameObject.activeSelf) 
+        {
+            _HitBoxObject.gameObject.SetActive(true);
+        }
+        _HitBoxObject.HitEvent += HitEventOfHitBocObject;
+    }
+
+    private void HitEventOfHitBocObject(GameObject attacker)
+    {
+        EndTutorial();
+        _HitBoxObject.HitEvent -= HitEventOfHitBocObject;
     }
 }
