@@ -13,6 +13,9 @@ public class HitBoxObject : MonoBehaviour, ICombatable
     [SerializeField] private AbilityTable   _AbilityTable;
     [SerializeField] private Animation      _HitAnimation;
 
+    [SerializeField] private string _HitAnimationName;
+    [SerializeField] private string _BreakAnimationName;
+
     public AbilityTable GetAbility
     {
         get => _AbilityTable;
@@ -25,12 +28,25 @@ public class HitBoxObject : MonoBehaviour, ICombatable
 
     public void Damaged(float damage, GameObject attacker)
     {
-        HitEvent?.Invoke(attacker);
+        if (_HitAnimation.IsPlaying(_BreakAnimationName))
+            return;
         
         _HitAnimation.Rewind();
-        _HitAnimation.Play();
+        _HitAnimation.Play(_HitAnimationName);
+
+        HitEvent?.Invoke(attacker);
 
         var offset = new Vector3(0f, 0.6f, 0f);
         EffectLibrary.Instance.UsingEffect(EffectKind.Damage, offset + transform.position);
+    }
+
+    public void Break()
+    {
+        _HitAnimation.Play(_BreakAnimationName);
+    }
+
+    private void AE_Disable()
+    {
+        gameObject.SetActive(false);
     }
 }

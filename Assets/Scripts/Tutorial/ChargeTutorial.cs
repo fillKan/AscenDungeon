@@ -28,6 +28,10 @@ public class ChargeTutorial : TutorialBase
     {
         base.EndTutorial();
 
+        for (int i = 0; i < _HitBoxObjects.Length; ++i) 
+        {
+            _HitBoxObjects[i].Break();
+        }
         Finger.Instance.Gauge.OnChargeEvent -= OnChargeEvent;
         Inventory.Instance.ProjectionHitEvent -= OnProjectionHitEvent;
     }

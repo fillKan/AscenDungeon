@@ -25,6 +25,8 @@ public class AttackTutorial : TutorialBase
     private void HitEventOfHitBoxObject(GameObject attacker)
     {
         EndTutorial();
+        
+        _HitBoxObject.Break();
         _HitBoxObject.HitEvent -= HitEventOfHitBoxObject;
     }
 }
