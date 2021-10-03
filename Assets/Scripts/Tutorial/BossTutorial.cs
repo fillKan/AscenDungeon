@@ -48,8 +48,15 @@ public class BossTutorial : TutorialBase
     // 보스 관찰...
     private IEnumerator BossWatching()
     {
-        while (_TutorialBoss.GetAbility[Ability.CurHealth] > 0f)
+        do
+        {
+            _ImageOfBossHealthbar.fillAmount = 
+                _TutorialBoss.GetAbility[Ability.CurHealth]/
+                _TutorialBoss.GetAbility[Ability.MaxHealth];
+            
             yield return null;
+        }
+        while (_TutorialBoss.GetAbility[Ability.CurHealth] > 0f);
         
         EndTutorial();
     }

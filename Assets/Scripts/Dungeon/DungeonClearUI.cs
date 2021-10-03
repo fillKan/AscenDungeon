@@ -38,7 +38,7 @@ public class DungeonClearUI : MonoBehaviour
 
         
 
-
+#if !UNITY_EDITOR
         Where where = new Where();
         Debug.Log("인벤");
 
@@ -125,7 +125,7 @@ public class DungeonClearUI : MonoBehaviour
             });
         }
     });
-
+#endif
 
 
             int clearSec = Mathf.FloorToInt(GameLoger.Instance.ElapsedTime % 60f);

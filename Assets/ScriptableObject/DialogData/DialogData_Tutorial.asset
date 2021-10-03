@@ -129,13 +129,3 @@ MonoBehaviour:
     Sprite: {fileID: 2800000, guid: d831a2d4acc44ad4a96027804f391300, type: 3}
     Text: "\uC790, \uC774\uC81C\uB294 \uB2E4\uC74C \uCE35\uC73C\uB85C \uC62C\uB77C
       \uD0D1\uC744 \uD074\uB9AC\uC5B4 \uD574\uBCF4\uC790\uACE0!"
-  - Index: 0
-    GroupCode: 10
-    Name: "\uD6C8\uB828\uAD50\uAD00"
-    Sprite: {fileID: 2800000, guid: d831a2d4acc44ad4a96027804f391300, type: 3}
-    Text: "\uC800 \uB140\uC11D\uC774 \uC774 \uD0D1\uC5D0 \uBCF4\uC2A4\uB77C\uB124"
-  - Index: 1
-    GroupCode: 10
-    Name: "\uD6C8\uB828\uAD50\uAD00"
-    Sprite: {fileID: 2800000, guid: d831a2d4acc44ad4a96027804f391300, type: 3}
-    Text: "\uBCF4\uC2A4\uB97C \uCC98\uCE58\uD558\uACE0 \uAE38\uB4DC\uB85C \uB3CC\uC544\uAC00\uC790\uACE0!"

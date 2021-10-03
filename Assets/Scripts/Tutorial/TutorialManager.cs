@@ -69,6 +69,9 @@ public class TutorialManager : Singleton<TutorialManager>
     
     private void WriteLog()
     {
+        if (_DialogQueue.Count == 0)
+            return;
+        
         var logData = _DialogQueue.Dequeue();
         Dialog.Instance.WriteLog(logData.Name, logData.Text, null);
     }
