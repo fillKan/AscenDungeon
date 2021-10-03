@@ -1,9 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossTutorial : TutorialBase
 {
+    [SerializeField] private GoblinNormal   _TutorialBoss;
+
+    [Header("Boss Healthbar")]
+    [SerializeField] private GameObject     _RootOfBossHealthbar;
+    [SerializeField] private Image          _ImageOfBossHealthbar;
+
+    [Header("Window Property")]
+    [SerializeField] private GameObject     _RootOfTutorialClear;
+
     public override void StartTutorial()
     {
         base.StartTutorial();
@@ -17,5 +27,30 @@ public class BossTutorial : TutorialBase
                 StageClearNotice.Instance.Hide();
             }
         };
+        Inventory.Instance.PlayerEnterFloorEvent += BossInit;
+    }
+
+    public override void EndTutorial()
+    {
+        base.EndTutorial();
+        _RootOfTutorialClear.SetActive(true);
+    }
+
+    private void BossInit()
+    {
+        HealthBarPool.Instance.UnUsingHealthBar(_TutorialBoss.transform);
+        _RootOfBossHealthbar.SetActive(true);
+
+        StartCoroutine(BossWatching());
+        Inventory.Instance.PlayerEnterFloorEvent -= BossInit;
+    }
+
+    // 보스 관찰...
+    private IEnumerator BossWatching()
+    {
+        while (_TutorialBoss.GetAbility[Ability.CurHealth] > 0f)
+            yield return null;
+        
+        EndTutorial();
     }
 }
