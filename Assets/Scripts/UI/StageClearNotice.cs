@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StageClearNotice : MonoBehaviour
+public class StageClearNotice : Singleton<StageClearNotice>
 {
     [SerializeField]
     private Animator _Animator;
@@ -13,7 +13,7 @@ public class StageClearNotice : MonoBehaviour
         if (string.IsNullOrEmpty(_AnimParameterName))
         {
             _AnimParameterName = _Animator.GetParameter(0).name;
-            gameObject.SetActive(false);
+            _Animator.gameObject.SetActive(false);
 
             if (StageEventLibrary.Instance == null)
                 return;
@@ -22,17 +22,13 @@ public class StageClearNotice : MonoBehaviour
             StageEventLibrary.Instance.StageEnterEvent += Hide;
         }
     }
-    private void Show()
+    public void Show()
     {
         _Animator.SetBool(_AnimParameterName, true);
-        gameObject.SetActive(true);
+        _Animator.gameObject.SetActive(true);
     }
-    private void Hide()
+    public void Hide()
     {
         _Animator.SetBool(_AnimParameterName, false);
-    }
-    private void AE_AnimPlayOver()
-    {
-        gameObject.SetActive(false);
     }
 }

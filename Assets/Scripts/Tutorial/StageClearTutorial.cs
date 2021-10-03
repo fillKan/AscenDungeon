@@ -24,6 +24,7 @@ public class StageClearTutorial : TutorialBase
     public override void EndTutorial()
     {
         base.EndTutorial();
+        StageClearNotice.Instance.Show();
         Inventory.Instance.EnterItemSlotEvent -= EnterItemSlotEvent;
     }
 
