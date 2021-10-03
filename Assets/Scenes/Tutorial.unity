@@ -598,6 +598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeFilter: {fileID: 125012950}
+  _StartFadeOutTime: 3
   DamagedFilter: {fileID: 125012951}
   ThisCamera: {fileID: 300584033}
   OriginCameraScale: 8

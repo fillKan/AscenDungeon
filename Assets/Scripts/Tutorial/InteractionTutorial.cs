@@ -19,7 +19,8 @@ public class InteractionTutorial : TutorialBase
     {
         if (_IsAlreadyClear)
             return;
-        
+
+        StageEventLibrary.Instance.SetActiveInventoryButton(true);
         _IsAlreadyClear = true;
         base.EndTutorial();
     }
