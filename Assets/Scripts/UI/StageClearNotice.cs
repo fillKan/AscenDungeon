@@ -19,7 +19,14 @@ public class StageClearNotice : Singleton<StageClearNotice>
                 return;
                 
             StageEventLibrary.Instance.StageClearEvent += Show;
-            StageEventLibrary.Instance.StageEnterEvent += Hide;
+            Inventory.Instance.MoveUpDownEvent += (pos, dir) =>
+            {
+                // 다음 층으로 이동한다면
+                if (dir == Direction.Up && pos == UnitizedPosV.BOT)
+                {
+                    Hide();
+                }
+            };
         }
     }
     public void Show()
