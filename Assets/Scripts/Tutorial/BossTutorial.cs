@@ -58,6 +58,7 @@ public class BossTutorial : TutorialBase
         }
         while (_TutorialBoss.GetAbility[Ability.CurHealth] > 0f);
         
+        _ImageOfBossHealthbar.fillAmount = 0f;
         EndTutorial();
     }
 }
