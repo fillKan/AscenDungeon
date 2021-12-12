@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.EventSystems;
 
 public class DropItem : NPC
 {
-    public SubscribableButton _InteractionBtn;
+    public SubscribableButton InteractBtn
+    {
+        get => _InteractionBtn;
+        set => _InteractionBtn = value;
+    }
 
     [SerializeField] private Animator Animator;
     [SerializeField] private SpriteRenderer Renderer;
@@ -28,8 +33,8 @@ public class DropItem : NPC
     }
     private void Start()
     {
-        if (_InteractionBtn != null)
-            _InteractionBtn.ButtonAction += IteractionMethod;
+        if (InteractBtn != null)
+            InteractBtn.ButtonAction += IteractionMethod;
     }
     private void Reset()
     {
@@ -52,8 +57,8 @@ public class DropItem : NPC
                 Animator.SetBool(animControlKey, true);
             }
         }
-        if (_InteractionBtn != null)
-            _InteractionBtn.ButtonAction -= IteractionMethod;
+        if (InteractBtn != null)
+            InteractBtn.ButtonAction -= IteractionMethod;
     }
 
     private void IteractionMethod(ButtonState state)

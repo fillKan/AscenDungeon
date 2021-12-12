@@ -150,8 +150,9 @@ public class StageEventLibrary : Singleton<StageEventLibrary>
         return new Vector2(Random.Range(createPointMin.x, createPointMax.x), createPointMin.y + 0.5f);
     }
 
-    private void SetActiveInventoryButton(bool isActive)
+    public void SetActiveInventoryButton(bool isActive)
     {
+        InventoryButton.gameObject.SetActive(true);
         int controlKey = InventoryButton.GetParameter(0).nameHash;
 
         InventoryButton.SetInteger(controlKey, isActive ? 1 : 0);
